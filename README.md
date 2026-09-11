@@ -1,45 +1,68 @@
-# E-commerce
+# Modelagem de Banco de Dados — E-commerce
 
- Desafio de modelagem de dados para um e-commerce.
+Projeto acadêmico/de estudo para modelagem de um banco de dados relacional aplicado a uma plataforma de e-commerce.
 
-## Requisitos:
-- Os produtos são vendidos por uma única plataforma online. Contudo, estes podem ter vendedores distintos (terceiros).
-- Cada produto possui um fornecedor.
-- Um ou mais produtos podem compor um pedido.
-- O cliente pode se cadastrar no site com seu CPF ou CNPJ.
-- O endereço do cliente irá determinar o valor do frete.
-- Um cliente pode comprar mais de um pedido. Este tem um período de carência para devolução do produto.
-- O pedidos são criados por clientes e possuem informações de compra, endereço e status de entrega.
-- Um produto ou mais compoem o pedido.
-- O pedido pode ser cancelado.
+## Contexto
 
+O cenário considera uma plataforma com:
 
-## Objetivo do desafio #1 (Refinamento):
-- [x] Cliente PJ e PF - Uma conta pode ser PJ ou PF, mas não pode ter as duas informações.
-- [x] Pagamento - Pode ter cadastrado mais de uma forma de pagamento.
-- [x] Entrega - Possui status e código de rastreio.
+- clientes pessoa física ou jurídica;
+- produtos;
+- fornecedores;
+- vendedores terceiros;
+- pedidos;
+- múltiplas formas de pagamento;
+- entregas com status e código de rastreamento.
 
-## Diagrama EER:
+## Objetivos da modelagem
 
-<img title="Diagrama EER" alt="Diagrama EER" src="diagrama-EER.png">
+### Refinamento do modelo
 
-## Objetivo do desafio #2 (Modelagem Física):
-- [x] Recuperações simples com SELECT Statement
-- [x] Filtros com WHERE Statement
-- [x] Crie expressões para gerar atributos derivados
-- [x] Defina ordenações dos dados com ORDER BY
-- [x] Condições de filtros aos grupos – HAVING Statement
-- [x] Crie junções entre tabelas para fornecer uma perspectiva mais complexa dos dados
+- [x] Diferenciar clientes PF e PJ;
+- [x] Permitir mais de uma forma de pagamento;
+- [x] Representar entrega com status e código de rastreamento.
 
-### Querys:
-- Todos os cadastro ordenados por nome (ORDER BY).
-- Todos os clientes ordenado por nome (JOIN e ORDER BY).
-- Todos os PJs ordenado por nome da empresa (JOIN e ORDER BY).
-- Todos os produtos do fornecedor X (WHERE).
-- Todo o estoque de produtos do vendedor X (JOIN e WHERE).
-- Todos os pedidos ordenado por data da compra (JOIN e ORDER BY).
-- Cada pedido por número com atributos derivados (WHERE e JOIN).
-- Cada status de entrega pelo código de rastreamento (WHERE e JOIN).
-- Todos os pedidos por status (GROUP BY).
-- Todas os vendas por produto e vendedor (GROUP BY e ORDER BY).
-- Agrupa todos os vendedores com a soma das vendas acima de R$ 1000 (JOIN, GROUP BY, HAVING e ORDER BY). 
+### Modelagem física e consultas
+
+- [x] Consultas com `SELECT`;
+- [x] Filtros com `WHERE`;
+- [x] Atributos derivados;
+- [x] Ordenação com `ORDER BY`;
+- [x] Agrupamento com `GROUP BY`;
+- [x] Filtros sobre grupos com `HAVING`;
+- [x] Junções com `JOIN`;
+- [x] Funções de agregação.
+
+## Diagrama EER
+
+![Diagrama EER](diagrama-EER.png)
+
+## Estrutura do repositório
+
+- `create-database.sql` — criação do schema;
+- `insert-data.sql` — inserção de dados de exemplo;
+- `query-database.sql` — consultas SQL;
+- `diagrama-EER.png` — diagrama entidade-relacionamento.
+
+## Exemplos de consultas
+
+O projeto inclui consultas para:
+
+- listar cadastros e clientes ordenados por nome;
+- listar pessoas jurídicas;
+- localizar produtos por fornecedor;
+- consultar estoque por vendedor;
+- listar pedidos por data;
+- consultar pedidos com atributos derivados;
+- consultar entregas por código de rastreamento;
+- agrupar pedidos por status;
+- agrupar vendas por produto e vendedor;
+- identificar vendedores cujo total de vendas ultrapassa determinado valor.
+
+## Conceitos praticados
+
+`SQL` · `Modelagem Relacional` · `EER` · `JOIN` · `GROUP BY` · `HAVING` · `ORDER BY`
+
+## Status
+
+✅ Projeto acadêmico/de estudo concluído.
